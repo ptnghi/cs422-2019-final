@@ -1,11 +1,24 @@
 class Bird extends Movable{
-    constructor(x, y){
-        super(x, y);   
+    constructor(){
+        super();
+        this.x = 32;
+        this.y = height/2;   
         this.gravity = 0.98 ;
         this.lift = -21;
         this.velocityY = 0;
+        this.isOver = false;
     }
-    
+
+    hits(pipe){
+        if(this.y < pipe.top + pipe.pipeWidth || this.y > pipe.bottom ){
+            if(this.x > pipe.x-pipe.pipeWidth/3 && this.x < pipe.x-pipe.pipeWidth/3 + pipe.pipeLidWidth){
+                this.isOver = true;
+                return true;
+            }
+        }
+        return false;
+    }
+
     draw(){
         stroke(0);
 
@@ -26,15 +39,17 @@ class Bird extends Movable{
     }
 
     update(){
-        this.velocityY += this.gravity;
-        this.velocityY *= 0.92;
-        this.y +=this.velocityY;
-        if(this.y > height){
-            this.y = 0;            
-        }
+        if (!this.isOver) {
+            this.velocityY += this.gravity;
+            this.velocityY *= 0.92;
+            this.y +=this.velocityY;
+            if(this.y > height){
+                this.y = 0;            
+            }
 
-        if(this.y < 0){
-            this.y = height;            
+            if(this.y < 0){
+                this.y = height;            
+            }
         }
     }
     up(){

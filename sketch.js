@@ -4,18 +4,18 @@ var game;
 function setup() {
     createCanvas(600,900);
     // game = new SpaceInvaderGame();
-    game = new snakeGame();
+    game = new FlappyBirdGame();
 }
 
 function draw() {
     game.draw();
-    // game.update();
+    game.update();
 }
 
 
 function keyPressed() {
     // game.keyPressed(key,keyCode);
-    game.keyPressed(keyCode);
+    game.keyPressed(key);
 }
 
 function keyReleased() {
