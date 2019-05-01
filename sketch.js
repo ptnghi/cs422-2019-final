@@ -24,6 +24,7 @@ function keyPressed() {
         if(game.isOver && key == 'q'){
             createCanvas(600,900);
             game = null;
+            rectMode(CORNER);
             state = 0;
         } else {
             game.keyPressed(key,keyCode);
