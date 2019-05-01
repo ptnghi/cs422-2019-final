@@ -57,10 +57,19 @@ class FlappyBirdGame {
     keyPressed(key){
         if(key == ' '){    
           this.bird.up();
+        } else if ((key === 'r') && (this.isOver)){
+            this.restart();
         }
     }
 
     keyReleased(key,keyCode){
 
+    }
+
+    restart(){
+        this.pipes =[];
+        this.bird  = new Bird();
+        this.pipes.push(new Pipe());
+        this.isOver = false;
     }
 }

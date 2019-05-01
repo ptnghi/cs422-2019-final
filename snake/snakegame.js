@@ -54,6 +54,9 @@ class SnakeGame{
     }
 
     keyPressed(key,keyCode){
+        if ((key === 'r') && (this.isOver)){
+            this.restart();
+        }
         if(keyCode === UP_ARROW){
           this.player.dir(0, -1);
         }
@@ -69,5 +72,12 @@ class SnakeGame{
     }
     keyReleased(key,keyCode){
 
+    }
+    restart(){
+        this.player = new Snake();
+        this.food = null;
+        this.pickLocation();
+        this.isOver = false;
+        this.isWon = false;
     }
 }
