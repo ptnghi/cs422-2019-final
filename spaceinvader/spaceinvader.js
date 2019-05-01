@@ -7,7 +7,7 @@ class SpaceInvaderGame {
         this.totalvelo = 20;
         this.maxbullet = 0;
         this.isOver = false;
-        frameRate(60);
+        this.isWon = false;
     }
 
 
@@ -76,8 +76,8 @@ class SpaceInvaderGame {
                 }
             }
 
-            console.log(this.enemyBullets.length);
-            if ((this.enemyBullets.length < this.maxbullet) && (frameCount % 35 === 0)) {
+            console.log(this.aliens.length);
+            if ((this.enemyBullets.length < this.maxbullet) && (frameCount % 35 === 0) && (this.aliens.length > 0)) {
                 let shooter = random(this.aliens);
                 let bullet = new Bullet(shooter.x, shooter.y, -5, '#FFEECCFF');
                 this.enemyBullets.push(bullet);
@@ -103,6 +103,11 @@ class SpaceInvaderGame {
             }
 
             this.cleanup();
+
+            if (this.aliens.length <= 0){
+                this.isOver = true;
+                this.isWon = true;
+            }
         }
     }
 
@@ -131,9 +136,17 @@ class SpaceInvaderGame {
     gameOver(){
         textSize(36);
         textAlign(CENTER);
-        text('Game Over you N00b', width/2, height/2);
-        text('Press R to restart', width/2, height/2 + 40);
+        if (!this.isWon){
+            text('Game Over you N00b', width/2, height/2);
+            text('Press R to restart', width/2, height/2 + 40);
+        } else {
+            text('Congrats You Won', width/2, height/2);
+            text('Press R to restart', width/2, height/2 + 40)
+        }
+
+        text('Press Q to return to menu', width/2, height/2 + 80);
     }
+
 
     restart(){
         this.player = new Ship(width/2, height-20);

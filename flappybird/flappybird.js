@@ -8,13 +8,16 @@ class FlappyBirdGame {
     }
 
     draw(){
+        background(0);
         if(!this.isOver){
-            background(0);
+
         
             for(let i=0; i< this.pipes.length; i++){
                 this.pipes[i].show();
             }
             this.bird.draw();
+        } else {
+            this.gameOver();
         }
     }
 
@@ -38,6 +41,19 @@ class FlappyBirdGame {
         console.log(this.isOver);
     }
 
+    gameOver(){
+        textSize(36);
+        textAlign(CENTER);
+        if (!this.isWon){
+            text('Game Over you N00b', width/2, height/2);
+            text('Press R to restart', width/2, height/2 + 40);
+        } else {
+            text('Congrats You Won', width/2, height/2);
+            text('Press R to restart', width/2, height/2 + 40)
+        }
+
+        text('Press Q to return to menu', width/2, height/2 + 80);
+    }
     keyPressed(key){
         if(key == ' '){    
           this.bird.up();
