@@ -1,8 +1,8 @@
-class snakeGame{
+class SnakeGame{
     constructor(){
         this.player = new Snake();
-        var food;
-        frameRate(10)
+        this.food = null;
+        frameRate(10);
         this.pickLocation();
     }
 
@@ -16,30 +16,35 @@ class snakeGame{
 
     draw() {
         background(51);
-        this.player.death();
-        this.player.update();
+
         this.player.show();
-      
-        if(this.player.eat(this.food)){
-          this.pickLocation();
-        }
-      
+
         fill(255, 0, 100)
         rect(this.food.x, this.food.y, this.player.getScl(), this.player.getScl());
     }
 
-    keyPressed(keyCode){
-        if(keyCode == UP_ARROW){
+    update(){
+        this.player.death();
+        this.player.update();
+        if(this.player.eat(this.food)){
+            this.pickLocation();
+        }
+    }
+    keyPressed(key,keyCode){
+        if(keyCode === UP_ARROW){
           this.player.dir(0, -1);
         }
-        else if(keyCode == DOWN_ARROW){
+        else if(keyCode === DOWN_ARROW){
           this.player.dir(0,1);
         }
-        else if(keyCode == LEFT_ARROW){
+        else if(keyCode === LEFT_ARROW){
           this.player.dir(-1,0);
         }
-        else if(keyCode == RIGHT_ARROW){
+        else if(keyCode === RIGHT_ARROW){
           this.player.dir(1,0);
         }
+    }
+    keyReleased(key,keyCode){
+
     }
 }

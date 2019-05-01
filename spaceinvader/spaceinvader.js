@@ -7,7 +7,7 @@ class SpaceInvaderGame {
         this.totalvelo = 20;
         this.maxbullet = 0;
         this.isOver = false;
-
+        frameRate(60);
     }
 
 
@@ -77,7 +77,7 @@ class SpaceInvaderGame {
             }
 
             console.log(this.enemyBullets.length);
-            if (this.enemyBullets.length < this.maxbullet) {
+            if ((this.enemyBullets.length < this.maxbullet) && (frameCount % 35 === 0)) {
                 let shooter = random(this.aliens);
                 let bullet = new Bullet(shooter.x, shooter.y, -5, '#FFEECCFF');
                 this.enemyBullets.push(bullet);
