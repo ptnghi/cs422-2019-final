@@ -17,7 +17,7 @@ class Bullet {
 
     update(){
         this.y -= this.velocity;
-        if (this.y < 0){
+        if (this.y < 0 || this.y > height){
             this.destroyed = true;
         }
     }

@@ -1,4 +1,4 @@
-class ship {
+class Ship {
     constructor(inx, iny) {
         this.x = inx;
         this.y = iny;
