@@ -25,10 +25,10 @@ class Ship {
     }
 
     hit(bullet){
-        if ((bullet.x < this.x + 10)
-            && (bullet.x > this.x - 1)
-            && (bullet.y < this.y+20)
-            && (bullet.y > this.y-20)) {
+        if ((bullet.x + bullet.r < this.x + 10)
+            && (bullet.x + bullet.r > this.x - 10)
+            && (bullet.y + bullet.r < this.y+20)
+            && (bullet.y + bullet.r > this.y-20)) {
             this.damaged();
             bullet.destroy();
         }
