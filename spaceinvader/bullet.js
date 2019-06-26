@@ -1,7 +1,6 @@
-class Bullet {
+class Bullet extends Movable{
     constructor(inx, iny, velocity, color) {
-        this.x = inx;
-        this.y = iny;
+        super(inx,iny);
         this.velocity = velocity;
         this.r = 8;
         this.color = color;

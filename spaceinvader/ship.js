@@ -1,7 +1,6 @@
-class Ship {
+class Ship extends Movable{
     constructor(inx, iny) {
-        this.x = inx;
-        this.y = iny;
+        super(inx,iny);
         this.xdir = 0;
         this.isDestroyed = false;
     }

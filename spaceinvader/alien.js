@@ -1,7 +1,6 @@
-class Alien {
+class Alien extends Movable{
     constructor(inx, iny, inhp) {
-        this.x = inx;
-        this.y = iny;
+        super(inx,iny);
         this.hp = inhp;
         this.destroyed = false;
         this.xdir = 1;
