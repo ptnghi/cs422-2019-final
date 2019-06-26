@@ -1,4 +1,6 @@
 ## ARCADE GAMES PROJECT 
+Author: Pham Thai Nghi - 1651024
+        Mai Le Bao Linh - 1651062
 
 A pack of three arcade games that rocked the video game's history in their period of time.
 
