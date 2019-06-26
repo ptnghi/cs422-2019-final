@@ -1,5 +1,0 @@
-class Movable {
-    constructor(){
-        
-    }
-}
